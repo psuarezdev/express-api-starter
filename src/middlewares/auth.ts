@@ -37,6 +37,6 @@ export const authenticate = async(req: any, res: any, next: NextFunction) => {
     req.user = user;
     return next();
   } catch (error) {
-    return res.status(401).json({ message: 'Somwthing went wrong, please try again.' });
+    return res.status(401).json({ message: 'Something went wrong, please try again.' });
   }
 };
