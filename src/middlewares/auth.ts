@@ -31,7 +31,7 @@ export const authenticate = async(req: any, res: any, next: NextFunction) => {
     const user = await jwtService.verifyToken(token);
 
     if (!user) {
-      return res.status(401).json({ message: 'Invalid token' });
+      return res.status(403).json({ message: 'Invalid token' });
     }
 
     req.user = user;
