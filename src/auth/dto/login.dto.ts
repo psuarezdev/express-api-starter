@@ -1,10 +1,10 @@
 import { Expose } from 'class-transformer';
-import { IsEmail, Matches } from 'class-validator';
+import { Matches, MinLength } from 'class-validator';
 
 export class LoginDTO {
   @Expose()
-  @IsEmail({}, { message: 'A valid email address is required' })
-  email!: string;
+  @MinLength(3, { message: 'Username must be at least 3 characters long' })
+  username!: string;
 
   @Expose()
   @Matches(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*?&]{8,}$/, {

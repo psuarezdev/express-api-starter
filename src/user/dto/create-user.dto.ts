@@ -1,18 +1,13 @@
 import { Expose } from 'class-transformer';
-import { IsEmail, IsNotEmpty, Length, Matches } from 'class-validator';
+import { IsEmail, IsNotEmpty, IsOptional, Length, Matches, MinLength } from 'class-validator';
 
 export class CreateUserDTO {
   @Expose()
-  @IsNotEmpty({ message: 'First name is required' })
-  @Length(2, 50, { message: 'First name must be between 2 and 50 characters' })
-  firstName!: string;
+  @MinLength(3, { message: 'Username must be at least 3 characters long' })
+  username!: string;
 
   @Expose()
-  @IsNotEmpty({ message: 'Last name is required' })
-  @Length(2, 50, { message: 'Last name must be between 2 and 50 characters' })
-  lastName!: string;
-
-  @Expose()
+  @IsOptional()
   @IsEmail({}, { message: 'A valid email address is required' })
   email!: string;
 

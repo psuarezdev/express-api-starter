@@ -1,10 +1,11 @@
 {
   "name": "express-api-starter",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "",
+  "main": "src/index.ts",
   "scripts": {
-    "dev": "ts-node-dev src/server.ts",
-    "start": "node dist/server.js",
+    "dev": "NODE_ENV=development ts-node-dev src/index.ts",
+    "start": "NODE_ENV=production node dist/index.js",
     "build": "tsc",
     "lint": "ts-standard",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -12,35 +13,41 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
   "dependencies": {
-    "@nestjs/mapped-types": "2.0.6",
-    "@prisma/client": "^6.2.0",
-    "awilix": "12.0.4",
-    "awilix-express": "9.0.2",
-    "bcrypt": "5.1.1",
+    "@apidevtools/swagger-parser": "12.0.0",
+    "@nestjs/mapped-types": "2.1.0",
+    "@prisma/client": "6.2.0",
+    "@types/express": "^4.17.23",
+    "bcrypt": "6.0.0",
     "class-transformer": "0.5.1",
-    "class-validator": "0.14.1",
+    "class-validator": "0.14.2",
     "cors": "2.8.5",
-    "dotenv": "16.4.7",
-    "express": "4.21.2",
+    "dotenv": "17.2.0",
+    "express": "^4.21.2",
     "express-list-endpoints": "7.1.1",
+    "install": "0.13.0",
+    "inversify": "^6.2.2",
+    "inversify-express-utils": "6.5.0",
     "jsonwebtoken": "9.0.2",
     "module-alias": "2.2.3",
+    "npm": "11.4.2",
+    "pino": "9.7.0",
+    "pino-http": "10.5.0",
+    "pino-pretty": "13.0.0",
     "reflect-metadata": "0.2.2",
-    "tsconfig-paths": "4.2.0",
-    "winston": "3.17.0"
+    "swagger-ui-express": "5.0.1"
   },
   "devDependencies": {
     "@types/bcrypt": "5.0.2",
-    "@types/cors": "2.8.17",
-    "@types/express": "5.0.0",
-    "@types/jsonwebtoken": "9.0.7",
-    "@types/node": "22.10.5",
+    "@types/cors": "2.8.19",
+    "@types/jsonwebtoken": "9.0.10",
+    "@types/module-alias": "^2.0.4",
+    "@types/node": "24.0.14",
+    "@types/swagger-ui-express": "4.1.8",
     "prisma": "6.2.0",
     "ts-node-dev": "2.0.0",
     "ts-standard": "12.0.2",
-    "typescript": "5.7.2"
+    "typescript": "5.8.3"
   },
   "eslintConfig": {
     "parserOptions": {
@@ -58,8 +65,5 @@
       "@typescript-eslint/strict-boolean-expressions": "off",
       "@typescript-eslint/explicit-function-return-type": "off"
     }
-  },
-  "_moduleAliases": {
-    "@": "dist"
   }
 }
