@@ -43,7 +43,7 @@ export const authenticate = async(req: Request, res: Response, next: NextFunctio
 
     (req as any).user = user;
     return next();
-  } catch (error) {
+  } catch {
     return res.status(401).json({ message: 'Something went wrong, please try again.' });
   }
 };

@@ -30,7 +30,7 @@ export class JwtService {
   generateTokens(payload: UserDTO) {
     try {
       if (!JWT_SECRET || !REFRESH_JWT_SECRET) {
-        throw new Error('JWT secret is not defined') 
+        throw new Error('JWT secret is not defined'); 
       }
 
       const { id: sub, username } = payload;

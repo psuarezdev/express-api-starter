@@ -7,7 +7,7 @@
     "dev": "NODE_ENV=development ts-node-dev src/index.ts",
     "start": "NODE_ENV=production node dist/index.js",
     "build": "tsc",
-    "lint": "ts-standard",
+    "lint": "npx eslint .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -15,6 +15,7 @@
   "license": "ISC",
   "dependencies": {
     "@apidevtools/swagger-parser": "12.0.0",
+    "@eslint/js": "9.31.0",
     "@nestjs/mapped-types": "2.1.0",
     "@prisma/client": "6.2.0",
     "@types/express": "^4.17.23",
@@ -23,6 +24,7 @@
     "class-validator": "0.14.2",
     "cors": "2.8.5",
     "dotenv": "17.2.0",
+    "eslint": "9.31.0",
     "express": "^4.21.2",
     "express-list-endpoints": "7.1.1",
     "install": "0.13.0",
@@ -35,7 +37,8 @@
     "pino-http": "10.5.0",
     "pino-pretty": "13.0.0",
     "reflect-metadata": "0.2.2",
-    "swagger-ui-express": "5.0.1"
+    "swagger-ui-express": "5.0.1",
+    "typescript-eslint": "8.37.0"
   },
   "devDependencies": {
     "@types/bcrypt": "5.0.2",
@@ -46,24 +49,6 @@
     "@types/swagger-ui-express": "4.1.8",
     "prisma": "6.2.0",
     "ts-node-dev": "2.0.0",
-    "ts-standard": "12.0.2",
     "typescript": "5.8.3"
-  },
-  "eslintConfig": {
-    "parserOptions": {
-      "project": "./tsconfig.json"
-    },
-    "extends": [
-      "./node_modules/ts-standard/eslintrc.json"
-    ],
-    "rules": {
-      "@typescript-eslint/indent": "off",
-      "@typescript-eslint/semi": "off",
-      "@typescript-eslint/keyword-spacing": "off",
-      "@typescript-eslint/member-delimiter-style": "off",
-      "@typescript-eslint/space-before-function-paren": "off",
-      "@typescript-eslint/strict-boolean-expressions": "off",
-      "@typescript-eslint/explicit-function-return-type": "off"
-    }
   }
 }

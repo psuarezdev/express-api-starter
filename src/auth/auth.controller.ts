@@ -23,7 +23,7 @@ export class AuthController implements interfaces.Controller {
   constructor(
     @inject('UserService') private userService: UserService,
     @inject('UtilsService') private utilsService: UtilsService,
-    @inject('JwtService') private jwtService: JwtService,
+    @inject('JwtService') private jwtService: JwtService
   ) { }
 
   @httpGet('/me')
