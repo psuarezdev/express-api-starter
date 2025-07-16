@@ -1,8 +1,6 @@
 # Express Api Starter
 
-Proyecto de express con autenticación, inyección de dependencias, prisma y swagger
-
-## Prerequisitos
+## Prerequisites
 
 **Node versión v22.14.0**
 <br />
@@ -10,21 +8,21 @@ Proyecto de express con autenticación, inyección de dependencias, prisma y swa
 <br />
 **typescript versión 5.x.x**
 
-## Configurar el proyecto
+## Setup the project
 
-### Clonar el repositorio
+### Clone the repository
 
 ```shell
-git clone git@gitea.contactel.es:psuaben/express-api-starter.git
+git clone https://github.com/psuarezdev/express-api-starter.git
 ```
 
-### Instalar paquetes
+### Install packages
 
 ```shell
 pnpm i
 ```
 
-### Configurar archivo .env
+### Setup .env variables
 
 ```js
 NODE_ENV=development
@@ -37,13 +35,13 @@ JWT_SECRET="your_jwt_secret"
 REFRESH_JWT_SECRET="your_refresh_jwt_secret"
 ```
 
-### Crear cliente de prisma
+### Create prisma client
 
 ```shell
 pnpx prisma generate
 ```
 
-### Ejecutar la aplicación
+### Run the app
 
 ```shell
 pnpm dev
