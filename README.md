@@ -44,5 +44,5 @@ pnpx prisma generate
 ### Run the app
 
 ```shell
-pnpm dev
+pnpm run dev
 ```
