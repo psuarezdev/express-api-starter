@@ -1,11 +1,16 @@
-import dotenv from 'dotenv';
+import { inject, injectable } from 'inversify';
 import jwt, { SignOptions } from 'jsonwebtoken';
+
 import { UserDTO } from '@/user/dto/user.dto';
 import { UserService } from '@/user/user.service';
-import { inject, injectable } from 'inversify';
 import { UtilsService } from './utils.service';
+import {
+  EXPIRES_IN as ENV_EXPIRES_IN,
+  REFRESH_EXPIRES_IN as ENV_REFRESH_EXPIRES_IN,
+  JWT_SECRET as ENV_JWT_SECRET,
+  REFRESH_JWT_SECRET as ENV_REFRESH_JWT_SECRET
+} from '@/lib/config';
 
-dotenv.config();
 
 export interface Payload {
   sub: string;
@@ -14,11 +19,10 @@ export interface Payload {
   exp: Date;
 }
 
-export const JWT_SECRET: string = process.env.JWT_SECRET || '';
-export const EXPIRES_IN: string = process.env.EXPIRES_IN || '1h';
-
-const REFRESH_JWT_SECRET: string = process.env.REFRESH_JWT_SECRET || '';
-export const REFRESH_EXPIRES_IN: string = process.env.REFRESH_EXPIRES_IN || '7d';
+const JWT_SECRET: string = ENV_JWT_SECRET || '';
+const EXPIRES_IN: string = ENV_EXPIRES_IN || '1h';
+const REFRESH_JWT_SECRET: string = ENV_REFRESH_JWT_SECRET || '';
+const REFRESH_EXPIRES_IN: string = ENV_REFRESH_EXPIRES_IN || '7d';
 
 @injectable()
 export class JwtService {
@@ -30,7 +34,7 @@ export class JwtService {
   generateTokens(payload: UserDTO) {
     try {
       if (!JWT_SECRET || !REFRESH_JWT_SECRET) {
-        throw new Error('JWT secret is not defined'); 
+        throw new Error('JWT secret is not defined');
       }
 
       const { id: sub, username } = payload;
@@ -78,12 +82,12 @@ export class JwtService {
       }
 
       const payload = jwt.verify(token, REFRESH_JWT_SECRET) as unknown as Payload;
-      
+
       const userFound = await this.userService.findById(payload.sub);
       if (!userFound) return null;
 
       const user = await this.utilsService.mapToDto(userFound, UserDTO);
-      if(!user.dto) return null;
+      if (!user.dto) return null;
 
       return this.generateTokens(user.dto)?.accessToken;
     } catch {

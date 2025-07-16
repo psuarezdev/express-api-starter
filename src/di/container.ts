@@ -5,6 +5,7 @@ import { UtilsService } from '@/shared/utils.service';
 import { JwtService } from '@/shared/jwt.service';
 
 import '@/auth/auth.controller';
+import '@/health/health.controller';
 
 const container = new Container();
 
