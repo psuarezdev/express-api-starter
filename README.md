@@ -2,11 +2,11 @@
 
 ## Prerequisites
 
-**Node versión v22.14.0**
+**Node version v22.14.0**
 <br />
-**pnpm versión 10.11.0**
+**pnpm version 10.11.0**
 <br />
-**typescript versión 5.x.x**
+**typescript version 5.x.x**
 
 ## Setup the project
 
